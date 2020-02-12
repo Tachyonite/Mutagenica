@@ -178,7 +178,6 @@ function mutate(){
 		var random = outcomes[Math.floor(Math.random()*outcomes.length)];
 		var randomTime = timeSpans[Math.floor(Math.random()*timeSpans.length)];
 	}
-	random = "human"
 	timeStrings = {
 		"instant":"You lived in a major city and were outside when the bombs fell, with no way to protect yourself. Gas filled your lungs almost instantly, and within thirty seconds",
 		"minutes":"You lived in a major city and were outside when the bombs fell, but you put your shirt over your mouth...which worked for a few minutes before",
