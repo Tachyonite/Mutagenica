@@ -107,9 +107,9 @@ function mutate(){
 	}
 	else {
 		if ("aeiou".includes(random.charAt(0))){
-			outStr = "you became an " + random;
+			outStr = "you became an&nbsp;" + random;
 		}else{
-			outStr = "you became a " + random;
+			outStr = "you became a&nbsp;" + random;
 		}
 		
 		timeStr = timeStrings[randomTime]
