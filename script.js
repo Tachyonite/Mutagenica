@@ -178,6 +178,7 @@ function mutate(){
 		var random = outcomes[Math.floor(Math.random()*outcomes.length)];
 		var randomTime = timeSpans[Math.floor(Math.random()*timeSpans.length)];
 	}
+	random = "human"
 	timeStrings = {
 		"instant":"You lived in a major city and were outside when the bombs fell, with no way to protect yourself. Gas filled your lungs almost instantly, and within thirty seconds",
 		"minutes":"You lived in a major city and were outside when the bombs fell, but you put your shirt over your mouth...which worked for a few minutes before",
@@ -192,8 +193,19 @@ function mutate(){
 		"year":"You were one day off surviving for a whole year. Purifying all your water and food, wearing gas masks, defending your homestead against mutants, the whole lot. You never counted on a leak in your roof to drip into your purified water supply. Hours before your one-year anniversary of staying human,"
 	}
 	if (random == "human"){
-		outStr = "you have stayed " + random;
-		timeStr = "You lived rurally and managed to live off the land, fending off former human animals and purifying all water and food before you drank it. To this day,";
+		outStr = "you've stayed " + random;
+		timeStr = "You lived rurally and managed to live off the land, fending off former human animals and purifying all water and food before you drank it. The whole time,";
+		var followUp = document.getElementById("humanFollowUp");
+		var aOrAn = "a"
+		
+		if (localStorage.followedUp){
+			if ("aeiou".includes(localStorage.followedUp.charAt(0))){
+			aOrAn = "an"
+			}
+			followUp.innerHTML = "But all around you were the sounds of nature, thriving at last. Eventually, you forsook your humanity and drank from a river contaminated with residual mutagen. Changes wracked your body, and you <strong><span style='color:#2A2;'>became "+ aOrAn + " " +localStorage.followedUp +"</span>!</strong>"
+		}else{
+			followUp.innerHTML = "But all around you are the sounds of nature, thriving at last. <span class='secretBox' onclick='rerollMutant()' style='text-decoration:underline;'>Maybe you feel like you're missing out?</span>"
+		}
 	}
 	else {
 		if ("aeiou".includes(random.charAt(0))){
@@ -210,4 +222,18 @@ function mutate(){
    	t.innerHTML = timeStr;
    	localStorage.setItem("animal", random);
    	localStorage.setItem("timespan", randomTime);
+}
+
+function rerollMutant(){
+	var nonHumanOutcomes = outcomes
+	nonHumanOutcomes.shift()
+	console.log(nonHumanOutcomes)
+	var newrandom = nonHumanOutcomes[Math.floor(Math.random()*nonHumanOutcomes.length)];
+	var aOrAn2 = "a"
+	var followUp = document.getElementById("humanFollowUp");
+	if ("aeiou".includes(newrandom.charAt(0))){
+		aOrAn2 = "an"
+	}
+	followUp.innerHTML = "But all around you were the sounds of nature, thriving at last. Eventually, you forsook your humanity and drank from a river contaminated with residual mutagen. Changes wracked your body, and you <strong><span style='color:#2A2;'>became "+ aOrAn2 + " " +newrandom +"</span>!</strong>"
+	localStorage.setItem("followedUp", newrandom);
 }
