@@ -78,7 +78,8 @@ function mutate(){
 
 	var s = document.getElementById("transformOutcome");
 	var t = document.getElementById("heldOut");
-	var outstr = ""
+	var outStr = ""
+	var timeStr = ""
 	if (localStorage.animal){
 		var random = localStorage.animal;
 		var randomTime = localStorage.timespan;
@@ -101,7 +102,7 @@ function mutate(){
 		"year":"You were one day off surviving for a whole year. Purifying all your water and food, wearing gas masks, defending your homestead against mutants, the whole lot. You never counted on a leak in your roof to drip into your purified water supply. Hours before your one-year anniversary of staying human,"
 	}
 	if (random == "human"){
-		outstr = "you have stayed " + random;
+		outStr = "you have stayed " + random;
 		timeStr = "You lived rurally and managed to live off the land, fending off former human animals and purifying all water and food before you drank it. To this day,";
 	}
 	else {
