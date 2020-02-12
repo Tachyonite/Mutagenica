@@ -8,7 +8,7 @@ outcomes = [
 "labrador",
 "fox terrier",
 "bulldog",
-"dog mutt"
+"dog mutt",
 "cat",
 "sphinx cat",
 "maine coon",
